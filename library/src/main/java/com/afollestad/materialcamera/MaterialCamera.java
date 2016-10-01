@@ -30,16 +30,45 @@ import java.lang.annotation.RetentionPolicy;
 @SuppressWarnings("WeakerAccess")
 public class MaterialCamera {
 
-    @IntDef({QUALITY_HIGH, QUALITY_LOW, QUALITY_480P, QUALITY_720P, QUALITY_1080P})
+    @IntDef({QUALITY_HIGH, QUALITY_LOW, QUALITY_480P, QUALITY_720P, QUALITY_1080P, QUALITY_CIF, QUALITY_QCIF})
     @Retention(RetentionPolicy.SOURCE)
     public @interface QualityProfile {
     }
 
+    /**
+     * Quality level corresponding to the highest available resolution.
+     */
     public static final int QUALITY_HIGH = CamcorderProfile.QUALITY_HIGH;
+    /**
+     * Quality level corresponding to the lowest available resolution.
+     */
     public static final int QUALITY_LOW = CamcorderProfile.QUALITY_LOW;
+    /**
+     * Quality level corresponding to the 480p (720 x 480) resolution.
+     * Note that the horizontal resolution for 480p can also be other
+     * values, such as 640 or 704, instead of 720.
+     */
     public static final int QUALITY_480P = CamcorderProfile.QUALITY_480P;
+    /**
+     * Quality level corresponding to the 720p (1280 x 720) resolution.
+     */
     public static final int QUALITY_720P = CamcorderProfile.QUALITY_720P;
+    /**
+     * Quality level corresponding to the 1080p (1920 x 1080) resolution.
+     * Note that the vertical resolution for 1080p can also be 1088,
+     * instead of 1080 (used by some vendors to avoid cropping during
+     * video playback).
+     */
     public static final int QUALITY_1080P = CamcorderProfile.QUALITY_1080P;
+    /**
+     * Quality level corresponding to the cif (352 x 288) resolution.
+     */
+    public static final int QUALITY_CIF = CamcorderProfile.QUALITY_CIF;
+    /**
+     * Quality level corresponding to the qcif (176 x 144) resolution.
+     */
+    public static final int QUALITY_QCIF = CamcorderProfile.QUALITY_QCIF;
+
 
     public static final String ERROR_EXTRA = "mcam_error";
     public static final String STATUS_EXTRA = "mcam_status";
